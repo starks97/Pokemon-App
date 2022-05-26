@@ -1,7 +1,7 @@
 export interface ResultProps {
   name: string;
   url: string;
-  id: string;
+  id: number;
   img: string;
 }
 
