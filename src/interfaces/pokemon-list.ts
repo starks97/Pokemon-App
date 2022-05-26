@@ -1,11 +1,10 @@
-export interface ResultProps<T> {
-  name: T;
-  url: T;
-  id : T;
-  img: T
+export interface ResultProps {
+  name: string;
+  url: string;
+  id: string;
+  img: string;
 }
-export type GenericProps = ResultProps<string | object>;
 
-export type PokemonProps = {
-  results: GenericProps[];
-};
+export interface PokemonProps {
+  results: ResultProps[];
+}
