@@ -2,6 +2,7 @@ import { FC } from "react";
 import { ResultProps } from "../../interfaces";
 
 import { Grid, Card, Row, Text } from "@nextui-org/react";
+import router from "next/router";
 
 interface Props {
   pokemon: ResultProps;
@@ -9,8 +10,12 @@ interface Props {
 }
 
 const PokemonCard: FC<Props> = ({ pokemon }) => {
+const onClick = () => {
+    router.push(`/pokemon/${pokemon.id}`)
+}
+
   return (
-    <Grid xs={6} sm={3} md={2} xl={1} key={pokemon.id}>
+    <Grid xs={6} sm={3} md={2} xl={1} key={pokemon.id} onClick={() => onClick()}>
       <Card hoverable clickable>
         <Card.Body css={{ p: 1 }}>
           <Card.Image src={pokemon.img} width="100%" height={140} />
