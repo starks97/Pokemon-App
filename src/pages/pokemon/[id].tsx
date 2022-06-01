@@ -3,9 +3,12 @@ import React from "react";
 import { NextPage, GetStaticProps, GetStaticPaths } from "next";
 import { useRouter } from "next/router";
 
+import { Grid, Card } from "@nextui-org/react";
+
 import { Layout } from "../../components/layouts";
 import { PokemonInfo } from "../../interfaces";
 import { URL, fetchPokeAPI } from "../../app/api";
+import {PokePageCard}from '../../components/pokemon'
 
 interface Props {
   pokemon: PokemonInfo;
@@ -13,8 +16,8 @@ interface Props {
 
 const PokemonPage: NextPage<Props> = ({ pokemon }) => {
   return (
-    <Layout tittle={""}>
-      <h1>{pokemon.name}</h1>
+    <Layout tittle={`Pokemon App | ${pokemon.name}`}>
+      <PokePageCard pokemon={pokemon} />
     </Layout>
   );
 };
