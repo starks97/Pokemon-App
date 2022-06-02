@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 
 import { Grid, Card } from "@nextui-org/react";
 
+
 import { Layout } from "../../components/layouts";
 import { PokemonInfo } from "../../interfaces";
 import { URL, fetchPokeAPI } from "../../app/api";

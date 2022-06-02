@@ -3,6 +3,8 @@ import { useState } from "react";
 
 import { Grid, Card, Text, Button, Image, Container } from "@nextui-org/react";
 
+import confetti from "canvas-confetti";
+
 import { PokemonInfo } from "../../interfaces";
 import { localFavorite } from "../../utils";
 
@@ -17,6 +19,17 @@ export default function PokePageCard({ pokemon }: Props) {
   const onToggle = () => {
     localFavorite.toggleFavorite(pokemon.id);
     setIsInFavorite(!isInFavorite);
+    if (isInFavorite) return;
+    confetti({
+      zIndex: 9999,
+      particleCount: 100,
+      spread: 160,
+      angle: -100,
+      origin: {
+        x: 1,
+        y: 0,
+      },
+    });
   };
   return (
     <Grid.Container css={{ marginTop: "5px" }} gap={2}>
