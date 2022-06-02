@@ -1,14 +1,23 @@
 import React from "react";
+import { useState } from "react";
 
 import { Grid, Card, Text, Button, Image, Container } from "@nextui-org/react";
 
 import { PokemonInfo } from "../../interfaces";
+import { localFavorite } from "../../utils";
 
 interface Props {
   pokemon: PokemonInfo;
 }
 
 export default function PokePageCard({ pokemon }: Props) {
+  const [isInFavorite, setIsInFavorite] = useState(
+    localFavorite.existInFavorites(pokemon.id)
+  );
+  const onToggle = () => {
+    localFavorite.toggleFavorite(pokemon.id);
+    setIsInFavorite(!isInFavorite);
+  };
   return (
     <Grid.Container css={{ marginTop: "5px" }} gap={2}>
       <Grid xs={12} sm={4}>
@@ -36,8 +45,13 @@ export default function PokePageCard({ pokemon }: Props) {
               {pokemon.name}
             </Text>
 
-            <Button color="gradient" ghost>
-              Save As Favorites
+            <Button
+              color="gradient"
+              ghost={!isInFavorite}
+              onClick={onToggle}
+              css={{ "@xs": { size: "xs" } }}
+            >
+              {isInFavorite ? "In favorites" : "Add to favorites"}
             </Button>
           </Card.Header>
           <Card.Body>
