@@ -10,19 +10,14 @@ import { FavoritesList } from "../../components/ui";
 import { localFavorite } from "../../utils";
 import FavoritesPoke from "../../components/pokemon/FavoritesPoke";
 
-export interface PokeProps {
-  favoritesPokemon: number[];
-  setFavoritesPokemon: React.Dispatch<React.SetStateAction<number[]>>;
-}
-
-export default function index() {
+export default function Index() {
   const [favoritesPokemon, setFavoritesPokemon] = useState<number[]>([]);
 
   useEffect(() => {
     setFavoritesPokemon(localFavorite.getPokemons());
   }, []);
   return (
-    <Layout tittle={"Pokemon App | Favorites"}>
+    <Layout tittle={`Pokemon App | Favorites`}>
       {favoritesPokemon.length === 0 ? (
         <FavoritesList />
       ) : (

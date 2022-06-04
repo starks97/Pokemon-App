@@ -10,6 +10,7 @@ import { Layout } from "../../components/layouts";
 import { PokemonInfo } from "../../interfaces";
 import { URL, fetchPokeAPI } from "../../app/api";
 import {PokePageCard}from '../../components/pokemon'
+import { getPokemonInfo } from "../../utils";
 
 interface Props {
   pokemon: PokemonInfo;
@@ -33,12 +34,9 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { id } = params as { id: string };
-  const url = `${URL}/${id}`;
-  const data = await fetchPokeAPI<PokemonInfo>(url);
-
   return {
     props: {
-      pokemon: data,
+      pokemon: await getPokemonInfo(id)
     },
   };
 };
