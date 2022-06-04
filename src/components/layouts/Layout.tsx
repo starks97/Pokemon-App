@@ -21,8 +21,8 @@ export const Layout: FC<LayoutProps> = ({ children, tittle }) => {
         <meta name="author" content="SkyCode Graphic" />
         <meta name="description" content="Pokemon Description" />
         <meta name="keywords" content="pokemon, description, description" />
-        <meta property="og:title" content={"Pokemon App"} />
-        <meta property="og:description" content={`Page About Pokemons`} />
+        <meta property="og:title" content={`information about ${tittle}`} />
+        <meta property="og:description" content={`Page About Pokemon | ${tittle}`} />
         <meta
           property="og:image"
           content={`${origin}/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbanner.eaa34bba.png&w=640&q=75`}
