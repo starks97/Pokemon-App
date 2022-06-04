@@ -1,4 +1,7 @@
 import React, { FC } from "react";
+
+import { useRouter } from "next/router";
+
 import Head from "next/head";
 
 import { Navbar } from "../ui";
@@ -8,6 +11,8 @@ interface LayoutProps {
   tittle?: string;
 }
 
+const origin = typeof window === "undefined" ? "" : window.location.origin;
+
 export const Layout: FC<LayoutProps> = ({ children, tittle }) => {
   return (
     <>
@@ -16,6 +21,12 @@ export const Layout: FC<LayoutProps> = ({ children, tittle }) => {
         <meta name="author" content="SkyCode Graphic" />
         <meta name="description" content="Pokemon Description" />
         <meta name="keywords" content="pokemon, description, description" />
+        <meta property="og:title" content={"Pokemon App"} />
+        <meta property="og:description" content={`Page About Pokemons`} />
+        <meta
+          property="og:image"
+          content={`${origin}/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbanner.eaa34bba.png&w=640&q=75`}
+        />
       </Head>
 
       {/* <navbar/> */}

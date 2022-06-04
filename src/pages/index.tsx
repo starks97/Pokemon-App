@@ -8,7 +8,7 @@ import { fetchPokeAPI, baseURL } from "../app/api";
 import { PokemonProps, ResultProps } from "../interfaces";
 import { generateId } from "../utils";
 import { PokemonCard } from "../components/pokemon";
-
+import baner from "../public/img/banner.png";
 interface Props {
   pokemons: ResultProps[];
 }
